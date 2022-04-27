@@ -5,7 +5,7 @@
   "main": "./src/export.tsx",
   "repository": "https://github.com/autuanthinh/monorepo-react",
   "publishConfig": {
-    "registry": "https://npm.pkg.github.com/@autuanthinh"
+    "registry": "https://npm.pkg.github.com/shenau-group"
   },
   "dependencies": {
     "@testing-library/jest-dom": "^5.16.4",
