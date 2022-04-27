@@ -6,7 +6,7 @@
   "main": "./src/export.tsx",
   "repository": "https://github.com/autuanthinh/monorepo-react",
   "publishConfig": {
-    "@xcanchal:registry": "https://npm.pkg.github.com/autuathinh"
+    "@autuanthinh:registry": "https://npm.pkg.github.com/autuathinh"
  },
   "dependencies": {
     "@testing-library/jest-dom": "^5.16.4",
