@@ -1,5 +1,6 @@
 {
   "name": "@workspace/root",
+  "private": true,
   "devDependencies": {
     "@craco/craco": "^6.4.3",
     "lerna": "^4.0.0"
