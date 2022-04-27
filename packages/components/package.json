@@ -1,12 +1,12 @@
 {
   "name": "@workspace/components",
-  "version": "0.1.1",
+  "version": "0.1.0",
   "private": true,
   "description": "Define components",
   "main": "./src/export.tsx",
   "repository": "https://github.com/autuanthinh/monorepo-react",
   "publishConfig": {
-    "@autuanthinh:registry": "https://npm.pkg.github.com/autuathinh"
+    "registry": "https://npm.pkg.github.com/@autuanthinh"
   },
   "dependencies": {
     "@testing-library/jest-dom": "^5.16.4",
