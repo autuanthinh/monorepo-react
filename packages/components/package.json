@@ -1,7 +1,6 @@
 {
   "name": "@workspace/components",
   "version": "0.1.3",
-  "private": false,
   "description": "Define components",
   "main": "./src/export.tsx",
   "repository": "https://github.com/autuanthinh/monorepo-react",
