@@ -1,7 +1,9 @@
 {
   "name": "@workspace/root",
+  "private": true,
   "devDependencies": {
     "@craco/craco": "^6.4.3",
+    "@lerna/package-graph": "^4.0.0",
     "lerna": "^4.0.0"
   },
   "workspaces": {
@@ -10,6 +12,7 @@
     ]
   },
   "scripts": {
+    "check": "snyk test @lerna/package-graph --dev",
     "start": "lerna exec --scope @workspace/app -- yarn start",
     "test": "lerna run test --scope=@workspace/app",
     "new-version": "lerna version --conventional-commits --yes",
