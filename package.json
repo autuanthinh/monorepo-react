@@ -12,6 +12,7 @@
     ]
   },
   "scripts": {
+    "storybook": "lerna exec --scope @workspace/components -- yarn storybook",
     "check": "snyk test @lerna/package-graph --dev",
     "start": "lerna exec --scope @workspace/app -- yarn start",
     "test": "lerna run test --scope=@workspace/app",
