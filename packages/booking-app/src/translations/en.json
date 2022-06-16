@@ -1,0 +1,10 @@
+{
+  "pageLogin.password": "Password",
+  "pageLogin.password_required": "Please input your password!",
+  "pageLogin.remember": "Remember me",
+  "pageLogin.submit": "Submit",
+  "pageLogin.title": "Sign In",
+  "pageLogin.username": "Username",
+  "pageLogin.username_required": "Please input your username!",
+  "pageTemplate.title": "Template"
+}

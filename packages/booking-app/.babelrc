@@ -1,0 +1,16 @@
+{
+    "presets": ["next/babel"],
+    "plugins": [
+        [
+            "react-intl-auto",
+            {
+              "removePrefix": true
+              // "filebase": false
+            },
+          ],
+        [
+            // Optional chaining
+            "@babel/plugin-proposal-optional-chaining"
+        ]
+    ]
+}

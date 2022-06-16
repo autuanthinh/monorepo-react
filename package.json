@@ -14,8 +14,13 @@
   "scripts": {
     "storybook": "lerna exec --scope @workspace/components -- yarn storybook",
     "check": "snyk test @lerna/package-graph --dev",
-    "start": "lerna exec --scope @workspace/app -- yarn start",
-    "test": "lerna run test --scope=@workspace/app",
+    "app:start": "lerna exec --scope @workspace/app -- yarn start",
+    "app:test": "lerna run test --scope=@workspace/app",
+    "booking:dev": "lerna exec --scope @workspace/booking-app -- yarn dev",
+    "booking:start": "lerna exec --scope @workspace/booking-app -- yarn start",
+    "booking:build": "lerna exec --scope @workspace/booking-app -- yarn build",
+    "booking:build-start": "lerna exec --scope @workspace/booking-app -- yarn build:start",
+    "booking:lint": "lerna exec --scope @workspace/booking-app -- yarn lint",
     "new-version": "lerna version --conventional-commits --yes",
     "diff": "lerna diff"
   }
