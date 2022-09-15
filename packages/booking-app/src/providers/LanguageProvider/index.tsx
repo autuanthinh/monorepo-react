@@ -1,4 +1,6 @@
-import React, { FC, PropsWithChildren, ReactElement, useMemo } from 'react';
+import React, { FC, PropsWithChildren, ReactElement, useEffect, useMemo } from 'react';
+// import Head from 'next/head';
+
 import { useSelector } from 'react-redux';
 
 import { IntlProvider } from 'react-intl';
@@ -18,8 +20,8 @@ const LanguageProvider: FC<LanguageProviderProps> = ({ children }): ReactElement
   }, [language]);
 
   return (
-    <IntlProvider locale={language} messages={messages[language]}>
-      {React.Children.only(children)}
+    <IntlProvider locale={language} messages={messages}>
+      {children}
     </IntlProvider>
   );
 };

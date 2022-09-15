@@ -2,6 +2,7 @@ import React, { FC, PropsWithChildren, ReactElement, useEffect, useMemo } from '
 import { useSelector } from 'react-redux';
 import { ConfigProvider } from 'antd';
 import { Locale } from 'antd/lib/locale-provider';
+import { Theme } from 'antd/lib/config-provider/context';
 import { LanguageType } from '@app/types/index';
 import * as languageSelectors from '../LanguageProvider/selectors';
 
@@ -16,17 +17,21 @@ const AntdProvider: FC<AntdProviderProps> = ({ children }): ReactElement => {
     return antdLocales[language];
   }, [language]);
 
+  const theme: Theme = useMemo(() => {
+    return {
+      primaryColor: '#f58220',
+      infoColor: '#1890ff',
+      successColor: '#52c41a',
+      errorColor: '#ff4d4f',
+      warningColor: '#faad14',
+    };
+  }, []);
+
   useEffect(() => {
     ConfigProvider.config({
-      theme: {
-        primaryColor: '#f58220',
-        // errorColor: '#ff4d4f',
-        // warningColor: '#faad14',
-        // successColor: '#52c41a',
-        // infoColor: '#1890ff',
-      },
+      theme,
     });
-  }, []);
+  }, [theme]);
 
   return <ConfigProvider locale={locale}>{children}</ConfigProvider>;
 };

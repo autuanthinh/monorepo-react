@@ -27,6 +27,11 @@ export default defineMessages({
     defaultMessage: 'Remember me',
   },
 
+  invalid: {
+    id: 'pageLogin.invalid',
+    defaultMessage: 'Username or password is wrong',
+  },
+
   // submit
   submit: {
     id: 'pageLogin.submit',

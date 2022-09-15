@@ -1,0 +1,10 @@
+@import '~styles/common/export.scss';
+
+.page-loading {
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  color: var(--ant-primary-color);
+}

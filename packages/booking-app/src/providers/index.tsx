@@ -1,13 +1,16 @@
 import React, { FC, PropsWithChildren, ReactElement } from 'react';
 import AntdProvider from './AntdProvider';
 import LanguageProvider from './LanguageProvider';
+import StyleComponentProvider from './StyleComponentProvider';
 
 export interface AppProviderProps extends PropsWithChildren<any> {}
 
-const AppProvider: FC<AppProviderProps> = ({ children, store }): ReactElement => {
+const AppProvider: FC<AppProviderProps> = ({ children }): ReactElement => {
   return (
     <AntdProvider>
-      <LanguageProvider>{children}</LanguageProvider>
+      <StyleComponentProvider>
+        <LanguageProvider>{children}</LanguageProvider>
+      </StyleComponentProvider>
     </AntdProvider>
   );
 };

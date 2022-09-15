@@ -1,10 +1,11 @@
 {
-  "pageLogin.password": "",
-  "pageLogin.password_required": "",
-  "pageLogin.remember": "",
-  "pageLogin.submit": "",
-  "pageLogin.title": "",
-  "pageLogin.username": "",
-  "pageLogin.username_required": "",
-  "pageTemplate.title": ""
+  "pageLogin.invalid": "Tên tài khoản hoặc mật khẩu sai",
+  "pageLogin.password": "Mật khẩu",
+  "pageLogin.password_required": "Vui lòng nhập mật khẩu của bạn",
+  "pageLogin.remember": "Ghi nhớ đăng nhập",
+  "pageLogin.submit": "Gửi",
+  "pageLogin.title": "Đăng Nhập",
+  "pageLogin.username": "Tên tài khoản",
+  "pageLogin.username_required": "Vui lòng nhập tên tài khoản",
+  "pageTemplate.title": "Trang mẫu"
 }

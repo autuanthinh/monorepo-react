@@ -8,6 +8,8 @@ declare global {
 export type ThemeModeType = 'light' | 'dark';
 export type LanguageType = 'en';
 
+export type Object<V> = { [key: string]: V };
+
 // Redux
 export interface ReducerStateMap {
   [reducer: string]: Immutable.Map<string, any>;

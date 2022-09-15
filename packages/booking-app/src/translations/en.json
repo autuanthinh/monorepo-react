@@ -1,4 +1,5 @@
 {
+  "pageLogin.invalid": "Username or password is wrong",
   "pageLogin.password": "Password",
   "pageLogin.password_required": "Please input your password!",
   "pageLogin.remember": "Remember me",

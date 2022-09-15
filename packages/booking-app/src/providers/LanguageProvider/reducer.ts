@@ -5,6 +5,8 @@ import { ImmutableState } from '@app/types/index';
 // import { setNumeralLocale } from './numeralLocales';
 
 import { SET_LANGUAGE, DEFAULT_LANGUAGE } from './constants';
+import { LOAD_COOKIE } from '@app/container/App/constants';
+import { HYDRATE } from 'next-redux-wrapper';
 
 // setMomentLocale(initLang);
 // setNumeralLocale(initLang);
@@ -20,6 +22,9 @@ function reducer(state: ImmutableState = initialState, action: any): ImmutableSt
       // setMomentLocale(action.language);
       // setNumeralLocale(action.language);
       return state.set('language', action.language);
+    case LOAD_COOKIE:
+      console.log('BBBBBBBBBBBBBBB', action.payload.language);
+      return state.set('language', action.payload.language);
     default:
       return state;
   }

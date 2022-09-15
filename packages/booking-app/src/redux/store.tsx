@@ -1,11 +1,29 @@
 import { configureStore, EnhancedStore, getDefaultMiddleware } from '@reduxjs/toolkit';
 import createSagaMiddleware from 'redux-saga';
 import { createInjectorsEnhancer } from 'redux-injectors';
-import { createWrapper } from 'next-redux-wrapper';
+import { createWrapper, HYDRATE } from 'next-redux-wrapper';
+import { fromJS } from 'immutable';
+import _ from 'lodash';
+import { nextReduxCookieMiddleware, wrapMakeStore } from 'next-redux-cookie-wrapper';
+import { customCookieMiddleware } from './middlwares/cookie';
 
 import createReducer from './reducers';
 import rootSaga from './sagas';
 const sagaMiddleware = createSagaMiddleware();
+
+const reducers = createReducer();
+
+const masterReducers = (state: any, action: any) => {
+  if (action.type === HYDRATE) {
+    const nextState = {
+      ...state,
+      ..._.mapValues(action.payload, value => fromJS(value)),
+    };
+    return nextState;
+  } else {
+    return reducers(state, action);
+  }
+};
 
 export function makeStore(initialState = {}): EnhancedStore {
   const { run: runSaga } = sagaMiddleware;
@@ -21,8 +39,23 @@ export function makeStore(initialState = {}): EnhancedStore {
   ];
 
   const store = configureStore({
-    reducer: createReducer(),
-    middleware: [...getDefaultMiddleware({ serializableCheck: false, immutableCheck: false }), ...middlewares],
+    // reducer: reducers,
+    reducer: masterReducers,
+    middleware: [
+      ...getDefaultMiddleware({ serializableCheck: false, immutableCheck: false }),
+      ...middlewares,
+      customCookieMiddleware(),
+      nextReduxCookieMiddleware({
+        subtrees: [
+          {
+            subtree: 'reducerLanguage',
+            cookieName: 'language',
+            compress: false,
+            ignoreStateFromStaticProps: false,
+          },
+        ],
+      }),
+    ],
     preloadedState: initialState,
     devTools: process.env.NODE_ENV !== 'production',
     enhancers,
@@ -35,4 +68,4 @@ export function makeStore(initialState = {}): EnhancedStore {
 export type AppStore = ReturnType<typeof makeStore>;
 export type AppState = ReturnType<AppStore['getState']>;
 
-export const wrapper = createWrapper<AppStore>(makeStore);
+export const wrapper = createWrapper<AppStore>(wrapMakeStore(makeStore), { debug: false });
